@@ -85,10 +85,10 @@ function App() {
 
               {/* Add to Week Button */}
               <button
-                className={`bg-primary-blue text-sm font-semibold text-white px-5 md:px-9 py-2 rounded-sm hover:bg-opacity-90 ${
+                className={`text-sm font-semibold text-white px-5 md:px-9 py-2 rounded-sm hover:bg-opacity-90 ${
                   selectedCards.length === 0
                     ? "bg-gray-500 cursor-not-allowed"
-                    : ""
+                    : "bg-primary-blue"
                 }`}
                 onClick={openModal}
                 disabled={selectedCards.length === 0}
