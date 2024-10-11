@@ -101,6 +101,11 @@ function App() {
 
         {/* Cards */}
         <div className="max-w-6xl mx-auto px-3 mt-6 md:px-0 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-12">
+          {data?.length === 0 && (
+            <div className="text-2xl text-center text-dark-gray">
+              No Recipes to this Week!
+            </div>
+          )}
           {isLoading ? (
             <Loader />
           ) : (
@@ -135,6 +140,7 @@ function App() {
         closeModal={closeModal}
         dialogRef={dialogRef}
         selectedCards={selectedCards}
+        setSelectedCards={setSelectedCards}
       />
     </section>
   );

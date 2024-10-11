@@ -1,8 +1,15 @@
 import { useState } from "react";
 import { weekTabs } from "../constants/tabArray";
 import { useUpdateSelectedWeekMutation } from "../services/ordersApi";
+import { toast } from "react-toastify";
 
-const Modal = ({ isOpen, closeModal, dialogRef, selectedCards }) => {
+const Modal = ({
+  isOpen,
+  closeModal,
+  dialogRef,
+  selectedCards,
+  setSelectedCards,
+}) => {
   const [activeTab, setActiveTab] = useState(1);
 
   // Mutation for updating the selected week
@@ -18,8 +25,12 @@ const Modal = ({ isOpen, closeModal, dialogRef, selectedCards }) => {
       }).unwrap();
 
       if (response) {
-        console.log(response, "Week updated successfully");
+        // success toast
+        toast.success(`Week ${activeTab} updated successfully!`, {
+          autoClose: 3000,
+        });
         closeModal();
+        setSelectedCards([]);
       }
     } catch (error) {
       console.error("Error updating week:", error);

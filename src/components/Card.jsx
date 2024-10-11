@@ -1,4 +1,5 @@
 import { useDeleteSelectedWeekMutation } from "../services/ordersApi";
+import { toast } from "react-toastify";
 
 function Card({
   id,
@@ -23,6 +24,9 @@ function Card({
 
       if (response) {
         console.log(response, `Recipes from ${activeTab} deleted successfully`);
+        toast.success(`Recipes from ${activeTab} deleted successfully`, {
+          autoClose: 3000,
+        });
       }
     } catch (error) {
       console.error(`Error deleting recipes from ${activeTab}:`, error);
